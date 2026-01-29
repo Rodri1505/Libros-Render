@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Lista de libros</h1>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Fecha Publicación</th>
+            <th>Digital</th>
+            <th>Detalles</th>
+        </tr>
+        {% for libro in libros %}
+        <tr>
+            <th>{{libro.id}}</th>
+            <th>{{libro.titulo}}</th>
+            <th>{{libro.autor}}</th>
+            <th>{{libro.fecha_publicacion}}</th>
+            <th>{{libro.digital}}</th>
+            <th><a href="/libros/{{libro.id}}">Ver detalles</a></th>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
