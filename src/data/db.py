@@ -2,14 +2,9 @@ from sqlmodel import create_engine, SQLModel, Session
 from models.libro import Libro
 import os
 
-db_user: str = "quevedo"  
-db_password: str =  "1234"
-db_server: str = "fastapi-db" 
-db_port: int = 5432  
-db_name: str = "librosdb"  
+DATABASE_URL = os.environ["DATABASE_URL"]
 
-DATABASE_URL = f"postgresql+psycopg2://{db_user}:{db_password}@{db_server}:{db_port}/{db_name}"
-engine = create_engine(os.getenv("DB_URL", DATABASE_URL), echo=True)
+engine = create_engine(DATABASE_URL,echo=True,pool_pre_ping=True)
 
 def get_session():
     with Session(engine) as session:
