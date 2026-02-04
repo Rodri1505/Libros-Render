@@ -89,7 +89,8 @@ async def eliminar_libro(libro_id:int):
     libros.remove(libro)
     return{"mensaje":"Libro eliminado correctamente."}
 
-'''
+
 if __name__ == "__main__":
     uvicorn.run("main:app", host="127.0.0.1", port=3000, reload=True)
 
+'''
